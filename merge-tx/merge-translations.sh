@@ -6,10 +6,10 @@
 
 if test "$BASH" = "" || "$BASH" -uc "a=();true \"\${a[@]}\"" 2>/dev/null; then
     # Bash 4.4, Zsh
-    set -euo pipefail
+    set -uo pipefail
 else
     # Bash 4.3 and older chokes on empty arrays with set -u.
-    set -eo pipefail
+    set -o pipefail
 fi
 shopt -s nullglob globstar
 
@@ -41,17 +41,18 @@ main () {
         local body="/tmp/${pr_id}-body.json"
 
         if [ "chore(translations)" == "$scope" ]; then
-            url=$(hub pr show "$pr_id" --url)
-            echo "Merging: ${url}"
+            pr_url=$(hub pr show "$pr_id" --url)
+            echo "Transifex PR: ${pr_id} ${pr_title}"
+            echo "${pr_url}"
             cat << EOF > "$body"
 {
   "commit_title": "${pr_title}",
-  "commit_message": "Automatically merged to resolve the avalance",
+  "commit_message": "Automatically merged.",
   "merge_method": "squash"
 }
 EOF
             res=$(hub api --method PUT "repos/{owner}/{repo}/pulls/${pr_id}/merge" --input "$body")
-            echo "Merged: ${pr_id} ${pr_title}"
+            echo "Result: $res"
             rm "$body"
             sleep 1
         fi
