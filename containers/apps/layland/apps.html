@@ -1,0 +1,2537 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Lay of the Land: master</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+html {
+font-size: 100%;
+overflow-y: scroll;
+-webkit-text-size-adjust: 100%;
+-ms-text-size-adjust: 100%;
+}
+body {
+color: #444;
+font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+font-size: 12px;
+line-height: 1.7;
+padding: 1em;
+margin: auto;
+max-width: 69em;
+background: #fefefe;
+}
+a {
+color: #0645ad;
+text-decoration: none;
+}
+a:visited {
+color: #0b0080;
+}
+a:hover {
+color: #06e;
+}
+a:active {
+color: #faa700;
+}
+a:focus {
+outline: thin dotted;
+}
+*::-moz-selection {
+background: rgba(255, 255, 0, 0.3);
+color: #000;
+}
+*::selection {
+background: rgba(255, 255, 0, 0.3);
+color: #000;
+}
+a::-moz-selection {
+background: rgba(255, 255, 0, 0.3);
+color: #0645ad;
+}
+a::selection {
+background: rgba(255, 255, 0, 0.3);
+color: #0645ad;
+}
+p {
+margin: 1em 0;
+}
+img {
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+color: #111;
+line-height: 125%;
+margin-top: 2em;
+font-weight: normal;
+}
+h4, h5, h6 {
+font-weight: bold;
+}
+h1 {
+font-size: 2.5em;
+}
+h2 {
+font-size: 2em;
+}
+h3 {
+font-size: 1.5em;
+}
+h4 {
+font-size: 1.2em;
+}
+h5 {
+font-size: 1em;
+}
+h6 {
+font-size: 0.9em;
+}
+blockquote {
+color: #666666;
+margin: 0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr {
+display: block;
+height: 2px;
+border: 0;
+border-top: 1px solid #aaa;
+border-bottom: 1px solid #eee;
+margin: 1em 0;
+padding: 0;
+}
+pre, code, kbd, samp {
+color: #000;
+font-family: monospace, monospace;
+_font-family: 'courier new', monospace;
+font-size: 0.98em;
+}
+pre {
+white-space: pre;
+white-space: pre-wrap;
+word-wrap: break-word;
+}
+b, strong {
+font-weight: bold;
+}
+dfn {
+font-style: italic;
+}
+ins {
+background: #ff9;
+color: #000;
+text-decoration: none;
+}
+mark {
+background: #ff0;
+color: #000;
+font-style: italic;
+font-weight: bold;
+}
+sub, sup {
+font-size: 75%;
+line-height: 0;
+position: relative;
+vertical-align: baseline;
+}
+sup {
+top: -0.5em;
+}
+sub {
+bottom: -0.25em;
+}
+ul, ol {
+margin: 1em 0;
+padding: 0 0 0 2em;
+}
+li p:last-child {
+margin-bottom: 0;
+}
+ul ul, ol ol {
+margin: .3em 0;
+}
+dl {
+margin-bottom: 1em;
+}
+dt {
+font-weight: bold;
+margin-bottom: .8em;
+}
+dd {
+margin: 0 0 .8em 2em;
+}
+dd:last-child {
+margin-bottom: 0;
+}
+img {
+border: 0;
+-ms-interpolation-mode: bicubic;
+vertical-align: middle;
+}
+figure {
+display: block;
+text-align: center;
+margin: 1em 0;
+}
+figure img {
+border: none;
+margin: 0 auto;
+}
+figcaption {
+font-size: 0.8em;
+font-style: italic;
+margin: 0 0 .8em;
+}
+table {
+margin-bottom: 2em;
+border-bottom: 1px solid #ddd;
+border-right: 1px solid #ddd;
+border-spacing: 0;
+border-collapse: collapse;
+width: 100%;
+}
+table th {
+padding: .2em 1em;
+background-color: #eee;
+border-top: 1px solid #ddd;
+border-left: 1px solid #ddd;
+}
+table td {
+padding: .2em 1em;
+border-top: 1px solid #ddd;
+border-left: 1px solid #ddd;
+vertical-align: top;
+}
+.author {
+font-size: 1.2em;
+text-align: center;
+}
+@media only screen and (min-width: 480px) {
+body {
+font-size: 14px;
+}
+}
+@media only screen and (min-width: 768px) {
+body {
+font-size: 16px;
+}
+}
+@media print {
+* {
+background: transparent !important;
+color: black !important;
+filter: none !important;
+-ms-filter: none !important;
+}
+body {
+font-size: 12pt;
+max-width: 100%;
+}
+a, a:visited {
+text-decoration: underline;
+}
+hr {
+height: 1px;
+border: 0;
+border-bottom: 1px solid black;
+}
+a[href]:after {
+content: " (" attr(href) ")";
+}
+abbr[title]:after {
+content: " (" attr(title) ")";
+}
+.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+content: "";
+}
+pre, blockquote {
+border: 1px solid #999;
+padding-right: 1em;
+page-break-inside: avoid;
+}
+tr, img {
+page-break-inside: avoid;
+}
+img {
+max-width: 100% !important;
+}
+@page :left {
+margin: 15mm 20mm 15mm 10mm;
+}
+@page :right {
+margin: 15mm 10mm 15mm 20mm;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3 {
+page-break-after: avoid;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<h1 class="title">Lay of the Land: master</h1>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#android-settings-app-2.0.0">android-settings-app (2.0.0)</a><ul>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#development-dependencies">Development dependencies</a></li>
+</ul></li>
+<li><a href="#app-management-app-31.0.0">app-management-app (31.0.0)</a><ul>
+<li><a href="#dependencies-1">Dependencies</a></li>
+<li><a href="#development-dependencies-1">Development dependencies</a></li>
+</ul></li>
+<li><a href="#cache-cleaner-app-1.0.0">cache-cleaner-app (1.0.0)</a><ul>
+<li><a href="#dependencies-2">Dependencies</a></li>
+<li><a href="#development-dependencies-2">Development dependencies</a></li>
+</ul></li>
+<li><a href="#capture-app-35.0.0">capture-app (35.0.0)</a><ul>
+<li><a href="#dependencies-3">Dependencies</a></li>
+<li><a href="#development-dependencies-3">Development dependencies</a></li>
+</ul></li>
+<li><a href="#visualizer-app-33.0.0">visualizer-app (33.0.0)</a></li>
+<li><a href="#core-resource-app-31.0.0">core-resource-app (31.0.0)</a></li>
+<li><a href="#dashboard-app-31.0.1">dashboard-app (31.0.1)</a><ul>
+<li><a href="#dependencies-4">Dependencies</a></li>
+<li><a href="#development-dependencies-4">Development dependencies</a></li>
+</ul></li>
+<li><a href="#data-administration-app-1.0.0">data-administration-app (1.0.0)</a><ul>
+<li><a href="#dependencies-5">Dependencies</a></li>
+<li><a href="#development-dependencies-5">Development dependencies</a></li>
+</ul></li>
+<li><a href="#data-quality-app-1.0.0">data-quality-app (1.0.0)</a><ul>
+<li><a href="#dependencies-6">Dependencies</a></li>
+<li><a href="#development-dependencies-6">Development dependencies</a></li>
+</ul></li>
+<li><a href="#data-visualizer-35.20.19">data-visualizer (35.20.19)</a><ul>
+<li><a href="#development-dependencies-7">Development dependencies</a></li>
+</ul></li>
+<li><a href="#datastore-app-1.0.0">datastore-app (1.0.0)</a><ul>
+<li><a href="#dependencies-7">Dependencies</a></li>
+<li><a href="#development-dependencies-8">Development dependencies</a></li>
+</ul></li>
+<li><a href="#event-capture-app-31.0.4">event-capture-app (31.0.4)</a></li>
+<li><a href="#event-visualizer-app-33.0.0">event-visualizer-app (33.0.0)</a></li>
+<li><a href="#event-reports-app-33.2.4">event-reports-app (33.2.4)</a></li>
+<li><a href="#mapping-app-31.0.0">mapping-app (31.0.0)</a></li>
+<li><a href="#import-export-app-1.0.0">import-export-app (1.0.0)</a><ul>
+<li><a href="#dependencies-8">Dependencies</a></li>
+<li><a href="#development-dependencies-9">Development dependencies</a></li>
+</ul></li>
+<li><a href="#interpretation-app-31.0.0">interpretation-app (31.0.0)</a><ul>
+<li><a href="#dependencies-9">Dependencies</a></li>
+</ul></li>
+<li><a href="#maintenance-app-32.0.0">maintenance-app (32.0.0)</a><ul>
+<li><a href="#dependencies-10">Dependencies</a></li>
+</ul></li>
+<li><a href="#maps-app-36.0.0">maps-app (36.0.0)</a><ul>
+<li><a href="#dependencies-11">Dependencies</a></li>
+<li><a href="#development-dependencies-10">Development dependencies</a></li>
+</ul></li>
+<li><a href="#menu-management-app-1.0.0">menu-management-app (1.0.0)</a><ul>
+<li><a href="#dependencies-12">Dependencies</a></li>
+<li><a href="#development-dependencies-11">Development dependencies</a></li>
+</ul></li>
+<li><a href="#messaging-app-31.0.0">messaging-app (31.0.0)</a><ul>
+<li><a href="#dependencies-13">Dependencies</a></li>
+<li><a href="#development-dependencies-12">Development dependencies</a></li>
+</ul></li>
+<li><a href="#pivot-app-33.0.0">pivot-app (33.0.0)</a></li>
+<li><a href="#reports-app-1.0.0">reports-app (1.0.0)</a><ul>
+<li><a href="#dependencies-14">Dependencies</a></li>
+<li><a href="#development-dependencies-13">Development dependencies</a></li>
+</ul></li>
+<li><a href="#scheduler-app-undefined">scheduler-app (undefined)</a><ul>
+<li><a href="#dependencies-15">Dependencies</a></li>
+<li><a href="#development-dependencies-14">Development dependencies</a></li>
+</ul></li>
+<li><a href="#settings-app-31.0.0">settings-app (31.0.0)</a><ul>
+<li><a href="#dependencies-16">Dependencies</a></li>
+<li><a href="#development-dependencies-15">Development dependencies</a></li>
+</ul></li>
+<li><a href="#sms-configuration-app-1.0.0">sms-configuration-app (1.0.0)</a><ul>
+<li><a href="#dependencies-17">Dependencies</a></li>
+<li><a href="#development-dependencies-16">Development dependencies</a></li>
+</ul></li>
+<li><a href="#media-app-0.1.0">media-app (0.1.0)</a></li>
+<li><a href="#tracker-capture-app-31.0.16">tracker-capture-app (31.0.16)</a></li>
+<li><a href="#translations-app-1.0.0">translations-app (1.0.0)</a><ul>
+<li><a href="#dependencies-18">Dependencies</a></li>
+<li><a href="#development-dependencies-17">Development dependencies</a></li>
+</ul></li>
+<li><a href="#usage-analytics-app-1.0.0">usage-analytics-app (1.0.0)</a><ul>
+<li><a href="#dependencies-19">Dependencies</a></li>
+<li><a href="#development-dependencies-18">Development dependencies</a></li>
+</ul></li>
+<li><a href="#user-app-31.0.0">user-app (31.0.0)</a><ul>
+<li><a href="#dependencies-20">Dependencies</a></li>
+<li><a href="#development-dependencies-19">Development dependencies</a></li>
+</ul></li>
+<li><a href="#user-profile-app-31.0.0">user-profile-app (31.0.0)</a><ul>
+<li><a href="#dependencies-21">Dependencies</a></li>
+</ul></li>
+<li><a href="#who-data-quality-tool-1.2.3">who-data-quality-tool (1.2.3)</a></li>
+<li><a href="#who-immunization-analysis-app-1.0.5">who-immunization-analysis-app (1.0.5)</a><ul>
+<li><a href="#development-dependencies-20">Development dependencies</a></li>
+</ul></li>
+<li><a href="#app-who-metadata-29.0.0">app-who-metadata (29.0.0)</a><ul>
+<li><a href="#development-dependencies-21">Development dependencies</a></li>
+</ul></li>
+<li><a href="#lodash-fp-1.0.1">lodash-fp (1.0.1)</a></li>
+<li><a href="#react-14-1.0.0">react-14 (1.0.0)</a></li>
+<li><a href="#react-15-1.0.0">react-15 (1.0.0)</a></li>
+<li><a href="#react-15-1.0.0-1">react-15 (1.0.0)</a></li>
+<li><a href="#data-visualizer-app-35.20.19">data-visualizer-app (35.20.19)</a><ul>
+<li><a href="#dependencies-22">Dependencies</a></li>
+<li><a href="#development-dependencies-22">Development dependencies</a></li>
+</ul></li>
+<li><a href="#dhis2data-visualizer-plugin-35.20.19"><span class="citation" data-cites="dhis2/data-visualizer-plugin">@dhis2/data-visualizer-plugin</span> (35.20.19)</a><ul>
+<li><a href="#dependencies-23">Dependencies</a></li>
+<li><a href="#development-dependencies-23">Development dependencies</a></li>
+</ul></li>
+<li><a href="#my-app-1.0.0">my-app (1.0.0)</a><ul>
+<li><a href="#dependencies-24">Dependencies</a></li>
+<li><a href="#development-dependencies-24">Development dependencies</a></li>
+</ul></li>
+<li><a href="#my-app-1.0.0-1">my-app (1.0.0)</a><ul>
+<li><a href="#dependencies-25">Dependencies</a></li>
+<li><a href="#development-dependencies-25">Development dependencies</a></li>
+</ul></li>
+<li><a href="#task-1-sidebar-navigation-1.0.0">task-1-sidebar-navigation (1.0.0)</a><ul>
+<li><a href="#dependencies-26">Dependencies</a></li>
+<li><a href="#development-dependencies-26">Development dependencies</a></li>
+</ul></li>
+<li><a href="#task-1-sidebar-navigation-1.0.0-1">task-1-sidebar-navigation (1.0.0)</a><ul>
+<li><a href="#dependencies-27">Dependencies</a></li>
+<li><a href="#development-dependencies-27">Development dependencies</a></li>
+</ul></li>
+<li><a href="#data-query-example-1.0.0">data-query-example (1.0.0)</a><ul>
+<li><a href="#dependencies-28">Dependencies</a></li>
+<li><a href="#development-dependencies-28">Development dependencies</a></li>
+</ul></li>
+<li><a href="#data-query-example-1.0.0-1">data-query-example (1.0.0)</a><ul>
+<li><a href="#dependencies-29">Dependencies</a></li>
+<li><a href="#development-dependencies-29">Development dependencies</a></li>
+</ul></li>
+<li><a href="#data-query-example-1.0.0-2">data-query-example (1.0.0)</a><ul>
+<li><a href="#dependencies-30">Dependencies</a></li>
+<li><a href="#development-dependencies-30">Development dependencies</a></li>
+</ul></li>
+<li><a href="#data-query-example-1.0.0-3">data-query-example (1.0.0)</a><ul>
+<li><a href="#dependencies-31">Dependencies</a></li>
+<li><a href="#development-dependencies-31">Development dependencies</a></li>
+</ul></li>
+<li><a href="#data-query-example-1.0.0-4">data-query-example (1.0.0)</a><ul>
+<li><a href="#dependencies-32">Dependencies</a></li>
+<li><a href="#development-dependencies-32">Development dependencies</a></li>
+</ul></li>
+<li><a href="#data-query-example-1.0.0-5">data-query-example (1.0.0)</a><ul>
+<li><a href="#dependencies-33">Dependencies</a></li>
+<li><a href="#development-dependencies-33">Development dependencies</a></li>
+</ul></li>
+<li><a href="#data-query-example-1.0.0-6">data-query-example (1.0.0)</a><ul>
+<li><a href="#dependencies-34">Dependencies</a></li>
+<li><a href="#development-dependencies-34">Development dependencies</a></li>
+</ul></li>
+<li><a href="#jest_tests-1.0.0">jest_tests (1.0.0)</a><ul>
+<li><a href="#dependencies-35">Dependencies</a></li>
+</ul></li>
+<li><a href="#jest_tests-1.0.0-1">jest_tests (1.0.0)</a><ul>
+<li><a href="#dependencies-36">Dependencies</a></li>
+</ul></li>
+<li><a href="#angular-css-1.0.8">angular-css (1.0.8)</a></li>
+<li><a href="#angular-leaflet-directive-0.10.0">angular-leaflet-directive (0.10.0)</a></li>
+<li><a href="#angular-ui-select2-0.0.5">angular-ui-select2 (0.0.5)</a></li>
+<li><a href="#babel-polyfill-6.20.0">babel-polyfill (6.20.0)</a></li>
+<li><a href="#d2-ui-28.0.3">d2-ui (28.0.3)</a></li>
+<li><a href="#jquery-3.2.0">jquery (3.2.0)</a></li>
+<li><a href="#jquery-migrate-3.0.0">jquery-migrate (3.0.0)</a></li>
+<li><a href="#jquery-ui-1.12.1">jquery-ui (1.12.1)</a></li>
+</ul>
+</nav>
+<h1 id="android-settings-app-2.0.0">android-settings-app (2.0.0)</h1>
+<h2 id="dependencies">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.0.4</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-ui-core">@dhis2/d2-ui-core</span></td>
+<td>^6.3.0</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-ui-table">@dhis2/d2-ui-table</span></td>
+<td>^6.3.0</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^5.7.2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^3.1.1</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^3.3.4</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="app-management-app-31.0.0">app-management-app (31.0.0)</h1>
+<h2 id="dependencies-1">Dependencies</h2>
+<table>
+<colgroup>
+<col style="width: 33%"></col>
+<col style="width: 33%"></col>
+<col style="width: 33%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/app-runtime-adapter-d2">@dhis2/app-runtime-adapter-d2</span></td>
+<td>^1.0.1</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-1">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^6.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.3.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="cache-cleaner-app-1.0.0">cache-cleaner-app (1.0.0)</h1>
+<h2 id="dependencies-2">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/prop-types">@dhis2/prop-types</span></td>
+<td>^1.6.4</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-2">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^6.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.3.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-utils-cypress">@dhis2/cli-utils-cypress</span></td>
+<td>^2.2.2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="capture-app-35.0.0">capture-app (35.0.0)</h1>
+<h2 id="dependencies-3">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.6.1</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.0.6</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-icons">@dhis2/d2-icons</span></td>
+<td>^1.0.1</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-ui-app">@dhis2/d2-ui-app</span></td>
+<td>^2.0.0</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-ui-org-unit-tree">@dhis2/d2-ui-org-unit-tree</span></td>
+<td>^6.1.0</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-ui-rich-text">@dhis2/d2-ui-rich-text</span></td>
+<td>^6.1.0</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-ui-sharing-dialog">@dhis2/d2-ui-sharing-dialog</span></td>
+<td>^6.5.10</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-3">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^4.0.9</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-helpers-engine">@dhis2/cli-helpers-engine</span></td>
+<td>^2.1.1</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-utils-cypress">@dhis2/cli-utils-cypress</span></td>
+<td>^4.1.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cypress-commands">@dhis2/cypress-commands</span></td>
+<td>^5.0.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="visualizer-app-33.0.0">visualizer-app (33.0.0)</h1>
+<h1 id="core-resource-app-31.0.0">core-resource-app (31.0.0)</h1>
+<h1 id="dashboard-app-31.0.1">dashboard-app (31.0.1)</h1>
+<h2 id="dependencies-4">Dependencies</h2>
+<table>
+<colgroup>
+<col style="width: 33%"></col>
+<col style="width: 33%"></col>
+<col style="width: 33%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/analytics">@dhis2/analytics</span></td>
+<td>^16.0.15</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime-adapter-d2">@dhis2/app-runtime-adapter-d2</span></td>
+<td>^1.0.2</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-ui-core">@dhis2/d2-ui-core</span></td>
+<td>^7.1.6</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-ui-interpretations">@dhis2/d2-ui-interpretations</span></td>
+<td>^7.1.6</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-ui-mentions-wrapper">@dhis2/d2-ui-mentions-wrapper</span></td>
+<td>^7.1.6</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-ui-rich-text">@dhis2/d2-ui-rich-text</span></td>
+<td>^7.1.6</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-ui-sharing-dialog">@dhis2/d2-ui-sharing-dialog</span></td>
+<td>^7.1.6</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-ui-translation-dialog">@dhis2/d2-ui-translation-dialog</span></td>
+<td>^7.1.6</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/data-visualizer-plugin">@dhis2/data-visualizer-plugin</span></td>
+<td>^35.20.18</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-4">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^6.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.2.2</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-utils-cypress">@dhis2/cli-utils-cypress</span></td>
+<td>^7.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cypress-commands">@dhis2/cypress-commands</span></td>
+<td>^5.1.1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="data-administration-app-1.0.0">data-administration-app (1.0.0)</h1>
+<h2 id="dependencies-5">Dependencies</h2>
+<table>
+<colgroup>
+<col style="width: 33%"></col>
+<col style="width: 33%"></col>
+<col style="width: 33%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/app-runtime-adapter-d2">@dhis2/app-runtime-adapter-d2</span></td>
+<td>^1.0.2</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/prop-types">@dhis2/prop-types</span></td>
+<td>^2.0.3</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.4</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-5">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^6.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.3.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="data-quality-app-1.0.0">data-quality-app (1.0.0)</h1>
+<h2 id="dependencies-6">Dependencies</h2>
+<table>
+<colgroup>
+<col style="width: 33%"></col>
+<col style="width: 33%"></col>
+<col style="width: 33%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/app-runtime-adapter-d2">@dhis2/app-runtime-adapter-d2</span></td>
+<td>^1.0.2</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/prop-types">@dhis2/prop-types</span></td>
+<td>^2.0.3</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.4</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-6">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^6.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.3.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="data-visualizer-35.20.19">data-visualizer (35.20.19)</h1>
+<h2 id="development-dependencies-7">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.2.2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="datastore-app-1.0.0">datastore-app (1.0.0)</h1>
+<h2 id="dependencies-7">Dependencies</h2>
+<table>
+<colgroup>
+<col style="width: 33%"></col>
+<col style="width: 33%"></col>
+<col style="width: 33%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/app-runtime-adapter-d2">@dhis2/app-runtime-adapter-d2</span></td>
+<td>^1.0.2</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/prop-types">@dhis2/prop-types</span></td>
+<td>^2.0.3</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-8">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^6.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.3.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="event-capture-app-31.0.4">event-capture-app (31.0.4)</h1>
+<h1 id="event-visualizer-app-33.0.0">event-visualizer-app (33.0.0)</h1>
+<h1 id="event-reports-app-33.2.4">event-reports-app (33.2.4)</h1>
+<h1 id="mapping-app-31.0.0">mapping-app (31.0.0)</h1>
+<h1 id="import-export-app-1.0.0">import-export-app (1.0.0)</h1>
+<h2 id="dependencies-8">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-9">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^6.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.3.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-utils-cypress">@dhis2/cli-utils-cypress</span></td>
+<td>^7.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cypress-commands">@dhis2/cypress-commands</span></td>
+<td>^7.0.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cypress-plugins">@dhis2/cypress-plugins</span></td>
+<td>^7.0.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="interpretation-app-31.0.0">interpretation-app (31.0.0)</h1>
+<h2 id="dependencies-9">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-ui-rich-text">@dhis2/d2-ui-rich-text</span></td>
+<td>^7.0.5</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+</tbody>
+</table>
+<h1 id="maintenance-app-32.0.0">maintenance-app (32.0.0)</h1>
+<h2 id="dependencies-10">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-ui-header-bar">@dhis2/d2-ui-header-bar</span></td>
+<td>^1.1.4</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-ui-sharing-dialog">@dhis2/d2-ui-sharing-dialog</span></td>
+<td>^1.0.12</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+</tbody>
+</table>
+<h1 id="maps-app-36.0.0">maps-app (36.0.0)</h1>
+<h2 id="dependencies-11">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/analytics">@dhis2/analytics</span></td>
+<td>^16.0.13</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-ui-core">@dhis2/d2-ui-core</span></td>
+<td>^7.1.6</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-ui-interpretations">@dhis2/d2-ui-interpretations</span></td>
+<td>^7.1.6</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-ui-org-unit-dialog">@dhis2/d2-ui-org-unit-dialog</span></td>
+<td>^7.1.6</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-ui-org-unit-tree">@dhis2/d2-ui-org-unit-tree</span></td>
+<td>^7.1.6</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/maps-gl">@dhis2/maps-gl</span></td>
+<td>^1.8.4</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-10">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^5.7.4</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-i18n-extract">@dhis2/d2-i18n-extract</span></td>
+<td>^1.0.8</td>
+<td>deprecation: use <span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-i18n-generate">@dhis2/d2-i18n-generate</span></td>
+<td>^1.2.0</td>
+<td>deprecation: use <span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+</tr>
+</tbody>
+</table>
+<h1 id="menu-management-app-1.0.0">menu-management-app (1.0.0)</h1>
+<h2 id="dependencies-12">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-11">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^6.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.0.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="messaging-app-31.0.0">messaging-app (31.0.0)</h1>
+<h2 id="dependencies-13">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-12">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^6.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.2.2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="pivot-app-33.0.0">pivot-app (33.0.0)</h1>
+<h1 id="reports-app-1.0.0">reports-app (1.0.0)</h1>
+<h2 id="dependencies-14">Dependencies</h2>
+<table>
+<colgroup>
+<col style="width: 33%"></col>
+<col style="width: 33%"></col>
+<col style="width: 33%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/app-runtime-adapter-d2">@dhis2/app-runtime-adapter-d2</span></td>
+<td>^1.0.1</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-ui-app">@dhis2/d2-ui-app</span></td>
+<td>^2.0.0</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-ui-core">@dhis2/d2-ui-core</span></td>
+<td>^7.0.5</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-ui-forms">@dhis2/d2-ui-forms</span></td>
+<td>^7.0.8</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-ui-org-unit-tree">@dhis2/d2-ui-org-unit-tree</span></td>
+<td>^7.0.8</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-ui-sharing-dialog">@dhis2/d2-ui-sharing-dialog</span></td>
+<td>^7.0.8</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-ui-table">@dhis2/d2-ui-table</span></td>
+<td>^7.0.8</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-13">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^6.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.3.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-utils-cypress">@dhis2/cli-utils-cypress</span></td>
+<td>^2.2.1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="scheduler-app-undefined">scheduler-app (undefined)</h1>
+<h2 id="dependencies-15">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/prop-types">@dhis2/prop-types</span></td>
+<td>2.0.3</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.4</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-14">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^6.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.3.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="settings-app-31.0.0">settings-app (31.0.0)</h1>
+<h2 id="dependencies-16">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-15">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^2.2.2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="sms-configuration-app-1.0.0">sms-configuration-app (1.0.0)</h1>
+<h2 id="dependencies-17">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/prop-types">@dhis2/prop-types</span></td>
+<td>^2.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.4</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-16">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^6.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.3.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-utils-cypress">@dhis2/cli-utils-cypress</span></td>
+<td>^5.1.1</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cypress-commands">@dhis2/cypress-commands</span></td>
+<td>^5.1.1</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cypress-plugins">@dhis2/cypress-plugins</span></td>
+<td>^7.0.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="media-app-0.1.0">media-app (0.1.0)</h1>
+<h1 id="tracker-capture-app-31.0.16">tracker-capture-app (31.0.16)</h1>
+<h1 id="translations-app-1.0.0">translations-app (1.0.0)</h1>
+<h2 id="dependencies-18">Dependencies</h2>
+<table>
+<colgroup>
+<col style="width: 33%"></col>
+<col style="width: 33%"></col>
+<col style="width: 33%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/app-runtime-adapter-d2">@dhis2/app-runtime-adapter-d2</span></td>
+<td>^1.0.2</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-ui-app">@dhis2/d2-ui-app</span></td>
+<td>^1.0.8</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-ui-core">@dhis2/d2-ui-core</span></td>
+<td>^1.3.2</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/prop-types">@dhis2/prop-types</span></td>
+<td>^2.0.3</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-17">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^6.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.3.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-utils-cypress">@dhis2/cli-utils-cypress</span></td>
+<td>^7.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cypress-commands">@dhis2/cypress-commands</span></td>
+<td>^7.0.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cypress-plugins">@dhis2/cypress-plugins</span></td>
+<td>^7.0.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="usage-analytics-app-1.0.0">usage-analytics-app (1.0.0)</h1>
+<h2 id="dependencies-19">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/prop-types">@dhis2/prop-types</span></td>
+<td>^1.6.4</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-18">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^6.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.2.2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="user-app-31.0.0">user-app (31.0.0)</h1>
+<h2 id="dependencies-20">Dependencies</h2>
+<table>
+<colgroup>
+<col style="width: 33%"></col>
+<col style="width: 33%"></col>
+<col style="width: 33%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/app-runtime-adapter-d2">@dhis2/app-runtime-adapter-d2</span></td>
+<td>^1.0.1</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-ui-app">@dhis2/d2-ui-app</span></td>
+<td>^2.0.0</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-ui-core">@dhis2/d2-ui-core</span></td>
+<td>^7.0.5</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-ui-forms">@dhis2/d2-ui-forms</span></td>
+<td>^7.0.5</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-ui-group-editor">@dhis2/d2-ui-group-editor</span></td>
+<td>^7.0.5</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-ui-org-unit-tree">@dhis2/d2-ui-org-unit-tree</span></td>
+<td>^7.0.5</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-ui-sharing-dialog">@dhis2/d2-ui-sharing-dialog</span></td>
+<td>^7.0.5</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-ui-table">@dhis2/d2-ui-table</span></td>
+<td>^7.0.5</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.4</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-19">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^6.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.3.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="user-profile-app-31.0.0">user-profile-app (31.0.0)</h1>
+<h2 id="dependencies-21">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.0.4</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui-widgets">@dhis2/ui-widgets</span></td>
+<td>^5.0.1</td>
+<td>deprecation: consider importing from <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+</tbody>
+</table>
+<h1 id="who-data-quality-tool-1.2.3">who-data-quality-tool (1.2.3)</h1>
+<h1 id="who-immunization-analysis-app-1.0.5">who-immunization-analysis-app (1.0.5)</h1>
+<h2 id="development-dependencies-20">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>github:dhis2/cli-style</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="app-who-metadata-29.0.0">app-who-metadata (29.0.0)</h1>
+<h2 id="development-dependencies-21">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^2.2.1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="lodash-fp-1.0.1">lodash-fp (1.0.1)</h1>
+<h1 id="react-14-1.0.0">react-14 (1.0.0)</h1>
+<h1 id="react-15-1.0.0">react-15 (1.0.0)</h1>
+<h1 id="react-15-1.0.0-1">react-15 (1.0.0)</h1>
+<h1 id="data-visualizer-app-35.20.19">data-visualizer-app (35.20.19)</h1>
+<h2 id="dependencies-22">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/analytics">@dhis2/analytics</span></td>
+<td>^16.0.15</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/d2-ui-interpretations">@dhis2/d2-ui-interpretations</span></td>
+<td>^7.1.6</td>
+<td>deprecation: migrate to <span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/data-visualizer-plugin">@dhis2/data-visualizer-plugin</span></td>
+<td>35.20.19</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-22">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^6.0.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-utils-cypress">@dhis2/cli-utils-cypress</span></td>
+<td>^4.0.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cypress-commands">@dhis2/cypress-commands</span></td>
+<td>^5.0.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="dhis2data-visualizer-plugin-35.20.19"><span class="citation" data-cites="dhis2/data-visualizer-plugin">@dhis2/data-visualizer-plugin</span> (35.20.19)</h1>
+<h2 id="dependencies-23">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/analytics">@dhis2/analytics</span></td>
+<td>^16.0.15</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.8.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/d2-i18n">@dhis2/d2-i18n</span></td>
+<td>^1.1.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^6.5.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-23">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^6.0.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="my-app-1.0.0">my-app (1.0.0)</h1>
+<h2 id="dependencies-24">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.2.2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-24">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^4.0.8</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="my-app-1.0.0-1">my-app (1.0.0)</h1>
+<h2 id="dependencies-25">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.2.2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-25">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^4.0.8</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.0.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="task-1-sidebar-navigation-1.0.0">task-1-sidebar-navigation (1.0.0)</h1>
+<h2 id="dependencies-26">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.2.2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/prop-types">@dhis2/prop-types</span></td>
+<td>^2.0.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^5.0.3</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-26">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^4.0.8</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.0.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="task-1-sidebar-navigation-1.0.0-1">task-1-sidebar-navigation (1.0.0)</h1>
+<h2 id="dependencies-27">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.2.2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/prop-types">@dhis2/prop-types</span></td>
+<td>^2.0.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^5.0.3</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-27">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^4.0.8</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/cli-style">@dhis2/cli-style</span></td>
+<td>^7.0.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="data-query-example-1.0.0">data-query-example (1.0.0)</h1>
+<h2 id="dependencies-28">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.2.2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^5.0.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-28">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^5.0.0-alpha.1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="data-query-example-1.0.0-1">data-query-example (1.0.0)</h1>
+<h2 id="dependencies-29">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.2.2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^5.0.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-29">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^5.0.0-alpha.1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="data-query-example-1.0.0-2">data-query-example (1.0.0)</h1>
+<h2 id="dependencies-30">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.2.2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^5.0.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-30">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^5.0.0-alpha.1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="data-query-example-1.0.0-3">data-query-example (1.0.0)</h1>
+<h2 id="dependencies-31">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.2.2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^5.0.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-31">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^5.0.0-alpha.1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="data-query-example-1.0.0-4">data-query-example (1.0.0)</h1>
+<h2 id="dependencies-32">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.2.2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^5.0.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-32">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^5.0.0-alpha.1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="data-query-example-1.0.0-5">data-query-example (1.0.0)</h1>
+<h2 id="dependencies-33">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.2.2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^5.0.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-33">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^5.0.0-alpha.1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="data-query-example-1.0.0-6">data-query-example (1.0.0)</h1>
+<h2 id="dependencies-34">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/app-runtime">@dhis2/app-runtime</span></td>
+<td>^2.2.2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="dhis2/ui">@dhis2/ui</span></td>
+<td>^5.0.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dependencies-34">Development dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/cli-app-scripts">@dhis2/cli-app-scripts</span></td>
+<td>^5.0.0-alpha.1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="jest_tests-1.0.0">jest_tests (1.0.0)</h1>
+<h2 id="dependencies-35">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/prop-types">@dhis2/prop-types</span></td>
+<td>^2.0.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="jest_tests-1.0.0-1">jest_tests (1.0.0)</h1>
+<h2 id="dependencies-36">Dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="dhis2/prop-types">@dhis2/prop-types</span></td>
+<td>^2.0.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="angular-css-1.0.8">angular-css (1.0.8)</h1>
+<h1 id="angular-leaflet-directive-0.10.0">angular-leaflet-directive (0.10.0)</h1>
+<h1 id="angular-ui-select2-0.0.5">angular-ui-select2 (0.0.5)</h1>
+<h1 id="babel-polyfill-6.20.0">babel-polyfill (6.20.0)</h1>
+<h1 id="d2-ui-28.0.3">d2-ui (28.0.3)</h1>
+<h1 id="jquery-3.2.0">jquery (3.2.0)</h1>
+<h1 id="jquery-migrate-3.0.0">jquery-migrate (3.0.0)</h1>
+<h1 id="jquery-ui-1.12.1">jquery-ui (1.12.1)</h1>
+<p><em>Generated Fri, 12 Mar 2021 15:12:23 GMT</em></p>
+</body>
+</html>
